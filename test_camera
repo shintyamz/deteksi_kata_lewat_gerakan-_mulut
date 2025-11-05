@@ -1,0 +1,29 @@
+import cv2
+
+# Buka kamera (0 = kamera utama laptop)
+cap = cv2.VideoCapture(0)
+
+# Cek apakah kamera berhasil dibuka
+if not cap.isOpened():
+    print("❌ Kamera tidak bisa dibuka.")
+else:
+    print("✅ Kamera berhasil dibuka.")
+    print("Tekan 'q' untuk keluar dari tampilan kamera.")
+
+    while True:
+        # Baca frame dari kamera
+        ret, frame = cap.read()
+        if not ret:
+            print("❌ Tidak bisa membaca frame dari kamera.")
+            break
+
+        # Tampilkan hasil di jendela
+        cv2.imshow("Tes Kamera", frame)
+
+        # Tekan 'q' untuk keluar
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Tutup kamera dan jendela OpenCV
+    cap.release()
+    cv2.destroyAllWindows()
