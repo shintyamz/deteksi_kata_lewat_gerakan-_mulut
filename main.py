@@ -72,7 +72,7 @@ detector = vision.FaceLandmarker.create_from_options(options)
 # ==========================
 # 🔹 Jalankan kamera real-time
 # ==========================
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("❌ Kamera tidak bisa dibuka")
